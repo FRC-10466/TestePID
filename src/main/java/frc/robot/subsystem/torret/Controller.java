@@ -32,17 +32,17 @@ public class Controller {
     
     public void controlPid() {
     if (xbox2.getHID().getAButton()) {
-        testePID.Alvo(TestePID.Laranja);
+        testePID.irPara(TestePID.Laranja);
     } else if (xbox2.getHID().getBButton()) {
-        testePID.Alvo(TestePID.Amarelo);
+        testePID.irPara(TestePID.Amarelo);
     } else if (xbox2.getHID().getXButton()) {
-        testePID.Alvo(TestePID.Verde);
+        testePID.irPara(TestePID.Verde);
     } else if (xbox2.getHID().getYButton()) {
-        testePID.Alvo(TestePID.Vermelho);
+        testePID.irPara(TestePID.Vermelho);
     } else if (xbox2.getHID().getLeftBumperButton()) {
-        testePID.Alvo(TestePID.AzulEscuro);
+        testePID.irPara(TestePID.AzulEscuro);
     } else if (xbox2.getHID().getRightBumperButton()) {
-        testePID.Alvo(TestePID.AzulClaro);
+        testePID.irPara(TestePID.AzulClaro);
     } else {
         testePID.parar(); 
     }
