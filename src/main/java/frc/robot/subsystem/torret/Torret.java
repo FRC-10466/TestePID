@@ -14,7 +14,7 @@ public class Torret {
     RelativeEncoder shooter_encoder;
     RelativeEncoder encoder_torret;
 
-    Controller controle = new Controller();
+    
 
     private final SparkMax motor_shooter = new SparkMax(1, MotorType.kBrushless);
     private final SparkMax motor_torret = new SparkMax(2, MotorType.kBrushless);
@@ -36,11 +36,8 @@ public class Torret {
 
     }
 
-    public void control() {
-        double speed_torreta = (controle.Velocidade_torreta() * 0.05);
-        motor_torret.set(speed_torreta);
-
-        double speed_shooter = (controle.Velocidade_shooter());
-        motor_shooter.set(speed_shooter);
-    }
+    public void control(double speedTorreta, double speedShooter) {
+    motor_torret.set(speedTorreta);
+    motor_shooter.set(speedShooter);
+}
 }

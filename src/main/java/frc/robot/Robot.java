@@ -4,13 +4,15 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import frc.robot.subsystem.torret.Torret;
+import frc.robot.subsystem.TestePID;
 import frc.robot.subsystem.torret.Controller;
 
 public class Robot extends TimedRobot {
 
-  Torret torret = new Torret();
+  private final TestePID testePID = new TestePID();
+  private final Torret  torret = new Torret();
 
-  Controller controller = new Controller();
+  private final Controller controller = new Controller(testePID, torret);
 
   /** Called once at the beginning of the robot program. */
   public Robot() {
@@ -35,8 +37,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during teleoperated mode. */
   @Override
   public void teleopPeriodic() {
-    torret.control();
-    controller.controlPid();
+    controller.periodic();
     
   }
 
