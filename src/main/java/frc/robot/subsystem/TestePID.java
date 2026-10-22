@@ -13,7 +13,7 @@ import com.revrobotics.spark.SparkMax;
 public class TestePID {
     private final Ultrasonic Sensor = new Ultrasonic(0, 1);
     private final PIDController Pid = new PIDController(0.01, 0, 0);
-    private final SparkMax Motor = new SparkMax(3, MotorType.kBrushless);
+    private final SparkMax Motor = new SparkMax(1, MotorType.kBrushless);
     
 
     public TestePID() {
