@@ -18,6 +18,11 @@ public class Robot extends TimedRobot {
   public Robot() {
   }
 
+  @Override
+  public void robotPeriodic(){
+    testePID.atualizarSensor();
+  }
+
   /** This function is run once each time the robot enters autonomous mode. */
   @Override
   public void autonomousInit() {
