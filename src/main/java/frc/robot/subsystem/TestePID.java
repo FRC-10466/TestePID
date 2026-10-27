@@ -24,13 +24,13 @@ public class TestePID {
     private final SparkMaxConfig config = new SparkMaxConfig();
 
     //Malha interna
-    private final PIDController PidAngulo = new PIDController(0.0, 0, 0);
+    private final PIDController PidAngulo = new PIDController(0.10, 0, 0);
     //Malhar externa
     private final PIDController PidPosicao = new PIDController(0, 0, 0, 0.1);
 
 
     private final double PotenciaMax = 0.10;
-    private final double LimiteRotacoes = 0.0;
+    private final double LimiteRotacoes = 0.095;
     private final double LimiteAngulo = LimiteRotacoes * 0.8;
 
 
@@ -68,8 +68,8 @@ public class TestePID {
             distanciaCm = filtro.calculate(leitura); // só entra no filtro quando o sensor mediu de novo
             ultimaLeitura = leitura;
             leituraNova = true;
+            System.out.println(leitura);
         }
-        System.out.println(leitura);
         SmartDashboard.putBoolean("PID/sensor_valido", Sensor.isRangeValid());
         SmartDashboard.putNumber("PID/distancia_cm", distanciaCm);
         SmartDashboard.putNumber("PID/encoder_rot", encoder.getPosition());
@@ -108,7 +108,6 @@ public class TestePID {
         PidAngulo.reset();
         PidPosicao.reset();
         anguloAlvo = 0;
-        filtro.reset();
         Motor.set(0);
         SmartDashboard.putNumber("PID/potencia", 0);
     }
