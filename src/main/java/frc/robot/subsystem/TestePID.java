@@ -69,8 +69,9 @@ public class TestePID {
             ultimaLeitura = leitura;
             leituraNova = true;
         }
+        System.out.println(leitura);
         SmartDashboard.putBoolean("PID/sensor_valido", Sensor.isRangeValid());
-        SmartDashoard.putNumber("PID/distancia_cm", leitura);
+        SmartDashboard.putNumber("PID/distancia_cm", distanciaCm);
         SmartDashboard.putNumber("PID/encoder_rot", encoder.getPosition());
     }
 
